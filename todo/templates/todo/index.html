@@ -1,0 +1,24 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<a href="{% url 'add' %}" class="btn btn-add">+ Add New To-Do</a>
+
+<br><br>
+
+{% for t in todos %}
+<div class="card">
+    <h3>{{ t.subject }}</h3>
+
+    <div class="actions">
+        <a href="{% url 'view' t.id %}" class="btn btn-view">View</a>
+        <a href="{% url 'edit' t.id %}" class="btn btn-edit">Edit</a>
+        <a href="{% url 'delete' t.id %}" class="btn btn-delete">Delete</a>
+    </div>
+</div>
+{% empty %}
+<p>No tasks added yet.</p>
+{% endfor %}
+
+{% endblock %}
+

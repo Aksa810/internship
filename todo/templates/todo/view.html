@@ -1,0 +1,16 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <h2>{{ todo.subject }}</h2>
+    <p>{{ todo.notes }}</p>
+
+    <br>
+
+    <a href="{% url 'edit' todo.id %}" class="btn btn-edit">Edit</a>
+    <a href="{% url 'index' %}" class="btn btn-view">Back</a>
+</div>
+
+{% endblock %}
+
